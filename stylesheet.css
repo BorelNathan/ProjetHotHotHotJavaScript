@@ -13,7 +13,7 @@ body {
 
 }
 
-.navbarre a {
+.navbarre button {
   color: white;
   text-align: center;
   float: left;
@@ -23,12 +23,12 @@ body {
 
 }
 
-.navbarre a:hover {
+.navbarre button:hover {
   background-color: #ddd;
   color: black;
 }
 
-.navbarre a.active {
+.navbarre button.active {
 
   background-color: grey;
   color: black;
