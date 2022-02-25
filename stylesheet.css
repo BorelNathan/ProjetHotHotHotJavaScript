@@ -10,6 +10,7 @@ body {
 .navbarre{
   overflow: hidden;
   background-color: black;
+
 }
 
 .navbarre a {
@@ -18,6 +19,7 @@ body {
   float: left;
   padding: 20px 20px;
   font-size: 20px;
+  text-decoration: none;
 
 }
 
