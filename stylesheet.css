@@ -1,0 +1,33 @@
+body {
+    /*background-color: red;*/
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+
+.navbarre{
+  overflow: hidden;
+  background-color: black;
+}
+
+.navbarre a {
+  color: white;
+  text-align: center;
+  float: left;
+  padding: 20px 20px;
+  font-size: 20px;
+
+}
+
+.navbarre a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.navbarre a.active {
+
+  background-color: grey;
+  color: black;
+}
