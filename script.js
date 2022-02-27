@@ -26,17 +26,10 @@ window.onload = function visibilityDiv() {
               if (x.style.visibility === "hidden") {
                 x.style.visibility = "visible";
               }
-              else {
-                x.style.visibility = "none";
-              }
             }
             else {
-                y.style.visibility = "hidden";
                 if(y.style.visibility === "hidden"){
-                  if (x.style.visibility === "visible") {
-                    x.style.visibility = "hidden";
-                  }
-                  else {
+                  if (x.style.visibility === "hidden") {
                     x.style.visibility = "visible";
                   }
                 }
@@ -48,23 +41,14 @@ window.onload = function visibilityDiv() {
             if (x.style.visibility === "hidden") {
               x.style.visibility = "visible";
             }
-            else {
-              x.style.visibility = "none";
-            }
-          }
-          else {
-              y.style.visibility = "hidden";
-              if(y.style.visibility === "hidden"){
-                if (x.style.visibility === "visible") {
-                  x.style.visibility = "hidden";
-                }
-                else {
-                  x.style.visibility = "visible";
-                }
+            else{
+                x.style.visibility = "visible";
               }
             }
           }
         }
+
+
         if(id == "btn2"){
           var x = document.getElementById("divdetest2");
           var y = document.getElementById("divdetest1");
@@ -76,17 +60,10 @@ window.onload = function visibilityDiv() {
               if (x.style.visibility === "hidden") {
                 x.style.visibility = "visible";
               }
-              else {
-                x.style.visibility = "none";
-              }
             }
             else {
-                y.style.visibility = "hidden";
                 if(y.style.visibility === "hidden"){
-                  if (x.style.visibility === "visible") {
-                    x.style.visibility = "hidden";
-                  }
-                  else {
+                  if (x.style.visibility === "hidden") {
                     x.style.visibility = "visible";
                   }
                 }
@@ -98,19 +75,8 @@ window.onload = function visibilityDiv() {
             if (x.style.visibility === "hidden") {
               x.style.visibility = "visible";
             }
-            else {
-              x.style.visibility = "none";
-            }
-          }
-          else {
-              y.style.visibility = "hidden";
-              if(y.style.visibility === "hidden"){
-                if (x.style.visibility === "visible") {
-                  x.style.visibility = "hidden";
-                }
-                else {
-                  x.style.visibility = "visible";
-                }
+            else{
+                x.style.visibility = "visible";
               }
             }
           }
@@ -126,46 +92,29 @@ window.onload = function visibilityDiv() {
               if (x.style.visibility === "hidden") {
                 x.style.visibility = "visible";
               }
-              else {
-                x.style.visibility = "none";
-              }
             }
             else {
-                y.style.visibility = "hidden";
                 if(y.style.visibility === "hidden"){
-                  if (x.style.visibility === "visible") {
-                    x.style.visibility = "hidden";
-                  }
-                  else {
+                  if (x.style.visibility === "hidden") {
                     x.style.visibility = "visible";
                   }
                 }
             }
-          }
-          else{
+        }
+        else{
           if(y.style.visibility === "visible"){
             y.style.visibility = "hidden";
             if (x.style.visibility === "hidden") {
               x.style.visibility = "visible";
             }
-            else {
-              x.style.visibility = "none";
-            }
-          }
-          else {
-              y.style.visibility = "hidden";
-              if(y.style.visibility === "hidden"){
-                if (x.style.visibility === "visible") {
-                  x.style.visibility = "hidden";
-                }
-                else {
-                  x.style.visibility = "visible";
-                }
+            else{
+                x.style.visibility = "visible";
               }
             }
           }
-          }
         }
+
+      }
     };
-  
+
 }
