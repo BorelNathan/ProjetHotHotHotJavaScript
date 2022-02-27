@@ -6,6 +6,18 @@ body {
 }
 
 
+#divdetest1{
+  display: block;
+}
+
+#divdetest2{
+  display: none;
+}
+
+#divdetest3{
+  display: none;
+}
+
 
 .navbarre{
   overflow: hidden;

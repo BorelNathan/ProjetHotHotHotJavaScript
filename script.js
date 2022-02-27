@@ -1,14 +1,32 @@
-window.onload = function DisplayDiv() {
+function ActualliserPseudo(){
+  var pseudo = document.getElementById("login").value;
+  console.log(pseudo + " boutton cliquer");
+  document.getElementById("btn3").innerHTML = pseudo;
+}
 
+/*
+window.onload = function test(){
 
-        document.getElementById("divdetest1").style.display = "block";
-        document.getElementById("divdetest2").style.display = "none";
-        document.getElementById("divdetest3").style.display = "none";
+    document.getElementById("divdetest1").style.display = "block";
+    document.getElementById("divdetest2").style.display = "none";
+    document.getElementById("divdetest3").style.display = "none";
+}
+*/
 
+function ElementDeBase(){
+
+    document.getElementById("divdetest1").style.display = "block";
+    document.getElementById("divdetest2").style.display = "none";
+    document.getElementById("divdetest3").style.display = "none";
+}
+
+function DisplayDiv() {
+
+        ElementDeBase();
         var buttons = document.getElementsByTagName('button');
         var buttonsCount = buttons.length;
-        for (var i = 0; i <= buttonsCount-1; i += 1) {
-          buttons[i].onclick = function(e) {
+        for (var i = 0; i <= buttonsCount-1; i++){
+          buttons[i].onclick = function(e){
         if(this.id == "btn1"){
           var x = document.getElementById("divdetest1");
           var y = document.getElementById("divdetest2");
