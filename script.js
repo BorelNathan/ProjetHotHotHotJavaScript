@@ -1,9 +1,9 @@
-window.onload = function visibilityDiv() {
+window.onload = function DisplayDiv() {
 
 
-        document.getElementById("divdetest1").style.visibility = "visible";
-        document.getElementById("divdetest2").style.visibility = "hidden";
-        document.getElementById("divdetest3").style.visibility = "hidden";
+        document.getElementById("divdetest1").style.display = "block";
+        document.getElementById("divdetest2").style.display = "none";
+        document.getElementById("divdetest3").style.display = "none";
 
         var buttons = document.getElementsByTagName('button');
         var buttonsCount = buttons.length;
@@ -13,6 +13,36 @@ window.onload = function visibilityDiv() {
           var x = document.getElementById("divdetest1");
           var y = document.getElementById("divdetest2");
           var z = document.getElementById("divdetest3");
+          if(z.style.display === "block"){
+            z.style.display = "none";
+            if(y.style.display === "block"){
+              y.style.display = "none";
+              if(x.style.display === "none"){
+                x.style.display = "block";
+              }
+            }
+            else{
+              if(y.style.display === "none"){
+                if(x.style.display === "none"){
+                  x.style.display = "block";
+                }
+              }
+            }
+          }
+          else{
+            if(y.style.display === "block"){
+              y.style.display = "none";
+              if(x.style.display === "none"){
+                x.style.display = "block";
+              }
+              else{
+                x.style.display = "block";
+              }
+            }
+          }
+
+
+          /*
           if(z.style.visibility === "visible"){
             z.style.visibility = "hidden";
             if(y.style.visibility === "visible"){
@@ -40,6 +70,7 @@ window.onload = function visibilityDiv() {
                 }
               }
             }
+        */
         }
 
 
@@ -47,30 +78,30 @@ window.onload = function visibilityDiv() {
           var x = document.getElementById("divdetest2");
           var y = document.getElementById("divdetest1");
           var z = document.getElementById("divdetest3");
-          if(z.style.visibility === "visible"){
-            z.style.visibility = "hidden";
-            if(y.style.visibility === "visible"){
-              y.style.visibility = "hidden";
-              if (x.style.visibility === "hidden") {
-                x.style.visibility = "visible";
+          if(z.style.display === "block"){
+            z.style.display = "none";
+            if(y.style.display === "block"){
+              y.style.display = "none";
+              if(x.style.display === "none"){
+                x.style.display = "block";
               }
             }
-            else {
-                if(y.style.visibility === "hidden"){
-                  if (x.style.visibility === "hidden") {
-                    x.style.visibility = "visible";
-                  }
-                }
-            }
-        }
-        else{
-          if(y.style.visibility === "visible"){
-            y.style.visibility = "hidden";
-            if (x.style.visibility === "hidden") {
-              x.style.visibility = "visible";
-            }
             else{
-                x.style.visibility = "visible";
+              if(y.style.display === "none"){
+                if(x.style.display === "none"){
+                  x.style.display = "block";
+                }
+              }
+            }
+          }
+          else{
+            if(y.style.display === "block"){
+              y.style.display = "none";
+              if(x.style.display === "none"){
+                x.style.display = "block";
+              }
+              else{
+                x.style.display = "block";
               }
             }
           }
@@ -79,30 +110,30 @@ window.onload = function visibilityDiv() {
           var x = document.getElementById("divdetest3");
           var y = document.getElementById("divdetest2");
           var z = document.getElementById("divdetest1");
-          if(z.style.visibility === "visible"){
-            z.style.visibility = "hidden";
-            if(y.style.visibility === "visible"){
-              y.style.visibility = "hidden";
-              if (x.style.visibility === "hidden") {
-                x.style.visibility = "visible";
+          if(z.style.display === "block"){
+            z.style.display = "none";
+            if(y.style.display === "block"){
+              y.style.display = "none";
+              if(x.style.display === "none"){
+                x.style.display = "block";
               }
             }
-            else {
-                if(y.style.visibility === "hidden"){
-                  if (x.style.visibility === "hidden") {
-                    x.style.visibility = "visible";
-                  }
-                }
-            }
-        }
-        else{
-          if(y.style.visibility === "visible"){
-            y.style.visibility = "hidden";
-            if (x.style.visibility === "hidden") {
-              x.style.visibility = "visible";
-            }
             else{
-                x.style.visibility = "visible";
+              if(y.style.display === "none"){
+                if(x.style.display === "none"){
+                  x.style.display = "block";
+                }
+              }
+            }
+          }
+          else{
+            if(y.style.display === "block"){
+              y.style.display = "none";
+              if(x.style.display === "none"){
+                x.style.display = "block";
+              }
+              else{
+                x.style.display = "block";
               }
             }
           }
@@ -110,5 +141,4 @@ window.onload = function visibilityDiv() {
 
       }
     };
-
 }
