@@ -7,15 +7,9 @@ window.onload = function visibilityDiv() {
 
         var buttons = document.getElementsByTagName('button');
         var buttonsCount = buttons.length;
-        //console.log(buttons.length);
         for (var i = 0; i <= buttonsCount-1; i += 1) {
-          //console.log(i);
           buttons[i].onclick = function(e) {
-        /*alert(this.id);*/
-        console.log(this.id);
-        var id = this.id;
-        //console.log(id);
-        if(id == "btn1"){
+        if(this.id == "btn1"){
           var x = document.getElementById("divdetest1");
           var y = document.getElementById("divdetest2");
           var z = document.getElementById("divdetest3");
@@ -34,22 +28,22 @@ window.onload = function visibilityDiv() {
                   }
                 }
             }
-        }
-        else{
-          if(y.style.visibility === "visible"){
-            y.style.visibility = "hidden";
-            if (x.style.visibility === "hidden") {
-              x.style.visibility = "visible";
-            }
-            else{
-                x.style.visibility = "visible";
+          }
+          else{
+              if(y.style.visibility === "visible"){
+                y.style.visibility = "hidden";
+                if (x.style.visibility === "hidden") {
+                  x.style.visibility = "visible";
+                }
+                else{
+                  x.style.visibility = "visible";
+                }
               }
             }
-          }
         }
 
 
-        if(id == "btn2"){
+        if(this.id == "btn2"){
           var x = document.getElementById("divdetest2");
           var y = document.getElementById("divdetest1");
           var z = document.getElementById("divdetest3");
@@ -81,7 +75,7 @@ window.onload = function visibilityDiv() {
             }
           }
         }
-        if(id == "btn3"){
+        if(this.id == "btn3"){
           var x = document.getElementById("divdetest3");
           var y = document.getElementById("divdetest2");
           var z = document.getElementById("divdetest1");
