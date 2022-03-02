@@ -4,6 +4,10 @@ function ActualliserPseudo(){
   document.getElementById("btn3").innerHTML = pseudo;
 }
 
+function Deconnection(){
+  document.getElementById("btn3").innerHTML = "Mon Compte";
+}
+
 /*
 window.onload = function test(){
 
@@ -13,20 +17,18 @@ window.onload = function test(){
 }
 */
 
-function ElementDeBase(){
 
-    document.getElementById("divdetest1").style.display = "block";
-    document.getElementById("divdetest2").style.display = "none";
-    document.getElementById("divdetest3").style.display = "none";
-}
+window.onload = function DisplayDiv() {
 
-function DisplayDiv() {
-
-        ElementDeBase();
+        console.log("display div call");
+        document.getElementById("divdetest1").style.display = "block";
+        document.getElementById("divdetest2").style.display = "none";
+        document.getElementById("divdetest3").style.display = "none";
         var buttons = document.getElementsByClassName("active");
         var buttonsCount = buttons.length;
         for (var i = 0; i <= buttonsCount-1; i++){
           buttons[i].onclick = function(e){
+                    console.log(this.id);
         if(this.id == "btn1"){
           var x = document.getElementById("divdetest1");
           var y = document.getElementById("divdetest2");
@@ -56,6 +58,9 @@ function DisplayDiv() {
               else{
                 x.style.display = "block";
               }
+            }
+            else{
+              x.style.display = "block";
             }
           }
 
@@ -120,7 +125,12 @@ function DisplayDiv() {
               }
               else{
                 x.style.display = "block";
+                console.log("call3");
               }
+            }
+            else{
+              x.style.display = "block";
+              console.log("call2");
             }
           }
         }
@@ -153,6 +163,9 @@ function DisplayDiv() {
               else{
                 x.style.display = "block";
               }
+            }
+            else{
+              x.style.display = "block";
             }
           }
         }
