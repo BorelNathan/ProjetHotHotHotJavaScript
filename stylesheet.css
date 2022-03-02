@@ -18,7 +18,6 @@ body {
   display: none;
 }
 
-
 .navbarre{
   overflow: hidden;
   background-color: black;
@@ -26,22 +25,46 @@ body {
 }
 
 .navbarre button {
-  color: white;
   text-align: center;
   float: left;
   padding: 20px 20px;
   font-size: 20px;
   text-decoration: none;
-
+  background-color: grey;
+  color: black;
+  transition-duration: 0.3s;
 }
 
 .navbarre button:hover {
-  background-color: #ddd;
-  color: black;
+  color: white;
 }
 
-.navbarre button.active {
-
+.Connection {
+  text-align: center;
+  float: left;
+  padding: 20px 20px;
+  font-size: 20px;
+  text-decoration: none;
   background-color: grey;
   color: black;
+  transition-duration: 0.3s;
+}
+
+.Connection:hover {
+  color: white;
+}
+
+.Deconnection {
+  text-align: center;
+  float: left;
+  padding: 20px 20px;
+  font-size: 20px;
+  text-decoration: none;
+  background-color: grey;
+  color: black;
+  transition-duration: 0.3s;
+}
+
+.Deconnection:hover {
+  color: white;
 }

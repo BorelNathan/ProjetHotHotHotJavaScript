@@ -1,11 +1,20 @@
 function ActualliserPseudo(){
   var pseudo = document.getElementById("login").value;
+  var bouton = document.getElementById("Connection");
   console.log(pseudo + " boutton cliquer");
-  document.getElementById("btn3").innerHTML = pseudo;
+  if(bouton.style.display === "block"){
+    console.log("CACA");
+    document.getElementById("btn3").innerHTML = pseudo;
+    document.getElementById("Connection").style.display = "none";
+    document.getElementById("Deconnection").style.display = "block";
+    document.getElementById("login").value = "";
+  }
 }
 
 function Deconnection(){
   document.getElementById("btn3").innerHTML = "Mon Compte";
+  document.getElementById("Connection").style.display = "block";
+  document.getElementById("Deconnection").style.display = "none";
 }
 
 /*
@@ -21,6 +30,8 @@ window.onload = function test(){
 window.onload = function DisplayDiv() {
 
         console.log("display div call");
+        document.getElementById("Connection").style.display = "block";
+        document.getElementById("Deconnection").style.display = "none";
         document.getElementById("divdetest1").style.display = "block";
         document.getElementById("divdetest2").style.display = "none";
         document.getElementById("divdetest3").style.display = "none";
