@@ -23,7 +23,7 @@ function ElementDeBase(){
 function DisplayDiv() {
 
         ElementDeBase();
-        var buttons = document.getElementsByTagName('button');
+        var buttons = document.getElementsByClassName("active");
         var buttonsCount = buttons.length;
         for (var i = 0; i <= buttonsCount-1; i++){
           buttons[i].onclick = function(e){
