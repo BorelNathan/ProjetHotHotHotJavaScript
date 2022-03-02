@@ -3,7 +3,7 @@ function ActualliserPseudo(){
   var bouton = document.getElementById("Connection");
   console.log(pseudo + " boutton cliquer");
   if(bouton.style.display === "block"){
-    console.log("CACA");
+    console.log("debug");
     document.getElementById("btn3").innerHTML = pseudo;
     document.getElementById("Connection").style.display = "none";
     document.getElementById("Deconnection").style.display = "block";
