@@ -2,12 +2,17 @@ function ActualliserPseudo(){
   var pseudo = document.getElementById("login").value;
   var bouton = document.getElementById("Connection");
   console.log(pseudo + " boutton cliquer");
-  if(bouton.style.display === "block"){
-    console.log("debug");
-    document.getElementById("btn3").innerHTML = pseudo;
-    document.getElementById("Connection").style.display = "none";
-    document.getElementById("Deconnection").style.display = "block";
-    document.getElementById("login").value = "";
+  if(pseudo != ""){
+    if(bouton.style.display === "block"){
+      console.log("debug");
+      document.getElementById("btn3").innerHTML = pseudo;
+      document.getElementById("Connection").style.display = "none";
+      document.getElementById("Deconnection").style.display = "block";
+      document.getElementById("login").value = "";
+    }
+  }
+  else{
+    alert('Rentrer un pseudo valide');
   }
 }
 
