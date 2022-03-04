@@ -22,7 +22,7 @@ function Deconnection(){
   document.getElementById("Deconnection").style.display = "none";
 }
 
-/*
+
 window.onload = function test(){
 
     document.getElementById("divdetest1").style.display = "block";
@@ -30,6 +30,7 @@ window.onload = function test(){
     document.getElementById("divdetest3").style.display = "none";
 }
 
+/*
 window.onload = function DisplayDiv() {
 
         console.log("display div call");
