@@ -50,4 +50,3 @@ Projet javascript
 
   - mise en cache de l’accueil avec les données récoltées (Attention, il n’est pas possible de mettre en cache des données en provenance d’un serveur websocket, il vous faudra trouver une alternative…)
 
-:)
