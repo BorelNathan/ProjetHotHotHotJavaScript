@@ -5,7 +5,7 @@ function ActualliserPseudo(){
   if(pseudo != ""){
     if(bouton.style.display === "block"){
       console.log("debug");
-      document.getElementById("btn3").innerHTML = pseudo;
+      document.getElementById("login").innerHTML = pseudo;
       document.getElementById("Connection").style.display = "none";
       document.getElementById("Deconnection").style.display = "block";
       document.getElementById("login").value = "";
@@ -29,8 +29,6 @@ window.onload = function test(){
     document.getElementById("divdetest2").style.display = "none";
     document.getElementById("divdetest3").style.display = "none";
 }
-*/
-
 
 window.onload = function DisplayDiv() {
 
@@ -109,7 +107,7 @@ window.onload = function DisplayDiv() {
                 }
               }
             }
-        */
+
         }
 
 
@@ -189,3 +187,4 @@ window.onload = function DisplayDiv() {
       }
     };
 }
+*/
