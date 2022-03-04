@@ -26,6 +26,9 @@ function Deconnection(){
 
 window.onload = function AffichageParDefaut(){
 
+  var queryPseudo = location.search.substring(1);
+  var split = queryString.split("|");
+
     document.getElementById("Connection").style.display = "block";
     document.getElementById("Deconnection").style.display = "none";
 }
