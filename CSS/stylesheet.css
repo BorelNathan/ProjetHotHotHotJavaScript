@@ -56,6 +56,52 @@ body {
   transition-duration: 0.3s;
 }
 
+
+
 .Deconnection:hover {
   color: white;
 }
+
+.titre-team{
+    text-align: center;
+    
+
+}
+
+.container-team{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+}
+
+.box{
+    background-color: grey;
+    position: relative;
+    padding: 45px 40px;
+    width: 350px;
+    height: auto;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.box h3{
+    font-size: 18px;
+    color: pink;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.box p{
+    font-size: 18px;
+    color: pink;
+    line-height: 28px;
+    margin-bottom: 25px;
+}
+
+.photo{
+    border-radius: 50%;
+}
+
+
