@@ -49,3 +49,5 @@ Projet javascript
   - Mise en cache dès le premier accès à la page d’accueil de la page documentation
 
   - mise en cache de l’accueil avec les données récoltées (Attention, il n’est pas possible de mettre en cache des données en provenance d’un serveur websocket, il vous faudra trouver une alternative…)
+
+:)
