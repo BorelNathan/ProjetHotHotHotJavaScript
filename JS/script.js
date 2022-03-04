@@ -6,6 +6,7 @@ function ActualliserPseudo(){
     if(bouton.style.display === "block"){
       console.log("debug");
       document.getElementById("login").innerHTML = pseudo;
+      sessionStorage.setItem("Pseudo", pseudo);
       document.getElementById("Connection").style.display = "none";
       document.getElementById("Deconnection").style.display = "block";
       document.getElementById("login").value = "";
@@ -23,8 +24,8 @@ function Deconnection(){
 }
 
 
-window.onload = function test(){
-    
+window.onload = function AffichageParDefaut(){
+
     document.getElementById("Connection").style.display = "block";
     document.getElementById("Deconnection").style.display = "none";
 }
