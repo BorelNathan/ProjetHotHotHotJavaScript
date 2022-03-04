@@ -1,11 +1,12 @@
 function ActualliserPseudo(){
-  var pseudo = document.getElementById("login").value;
+  var pseudo = document.getElementById("Pseudo").value;
   var bouton = document.getElementById("Connection");
   console.log(pseudo + " boutton cliquer");
   if(pseudo != ""){
     if(bouton.style.display === "block"){
       console.log("debug");
       document.getElementById("login").innerHTML = pseudo;
+      sessionStorage.setItem("Pseudo", pseudo);
       document.getElementById("Connection").style.display = "none";
       document.getElementById("Deconnection").style.display = "block";
       document.getElementById("login").value = "";
@@ -17,20 +18,28 @@ function ActualliserPseudo(){
 }
 
 function Deconnection(){
-  document.getElementById("btn3").innerHTML = "Mon Compte";
+  document.getElementById("login").innerHTML = "Mon Compte";
   document.getElementById("Connection").style.display = "block";
   document.getElementById("Deconnection").style.display = "none";
 }
 
 
-window.onload = function test(){
+window.onload = function AffichageParDefaut(){
 
-    document.getElementById("divdetest1").style.display = "block";
-    document.getElementById("divdetest2").style.display = "none";
-    document.getElementById("divdetest3").style.display = "none";
+  if(document.URL.includes("index.html")){
+    var queryPseudo = location.search.substring(1);
+    var split = queryPseudo.split("|");
+    var value1 = split[0];
+    console.log(value1);
+  }
+  else if(document.URL.includes("login.html")){
+    document.getElementById("Connection").style.display = "block";
+    document.getElementById("Deconnection").style.display = "none";
+  }
 }
 
 /*
+
 window.onload = function DisplayDiv() {
 
         console.log("display div call");
