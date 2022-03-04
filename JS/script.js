@@ -26,11 +26,16 @@ function Deconnection(){
 
 window.onload = function AffichageParDefaut(){
 
-  var queryPseudo = location.search.substring(1);
-  var split = queryString.split("|");
-
+  if(document.URL.includes("index.html")){
+    var queryPseudo = location.search.substring(1);
+    var split = queryPseudo.split("|");
+    var value1 = split[0];
+    console.log(value1);
+  }
+  else if(document.URL.includes("login.html")){
     document.getElementById("Connection").style.display = "block";
     document.getElementById("Deconnection").style.display = "none";
+  }
 }
 
 /*
