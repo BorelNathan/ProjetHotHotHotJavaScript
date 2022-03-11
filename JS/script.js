@@ -51,10 +51,10 @@ function Deconnection(){
   var href3 = 'login.html';
   c.setAttribute('href', href3);
   c.innerHTML = "Mon Compte";
-  
+
   document.querySelector("#Connection").style.display = "block";
   document.querySelector("#Deconnection").style.display = "none";
-
+  document.querySelector("#login").value = "";
 }
 
 
