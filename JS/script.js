@@ -4,9 +4,25 @@ function ActualliserPseudo(){
   console.log(pseudo + " boutton cliquer");
   if(pseudo != ""){
     if(bouton.style.display === "block"){
+
+      var a = document.getElementById("index");
+      //var link = document.createTextNode("Page Principale");
+      var href1 = 'index.html?'+ pseudo;
+      a.setAttribute('href', href1);
+      a.innerHTML = "Page Principale";
+      var b = document.querySelector("#doc");
+      var href2 = 'documentation.html?' + pseudo;
+      b.setAttribute('href', href2);
+      b.innerHTML = "Documentation";
+      //a.appendChild(link);
+      //a.title = "Page Principale";
+      //a.href = "index.html?" + pseudo;
+      //var div = document.getElementById("barredenav");
+      //console.log(div);
+
+
       console.log("debug");
       document.getElementById("login").innerHTML = pseudo;
-      sessionStorage.setItem("Pseudo", pseudo);
       document.getElementById("Connection").style.display = "none";
       document.getElementById("Deconnection").style.display = "block";
       document.getElementById("login").value = "";
@@ -18,23 +34,96 @@ function ActualliserPseudo(){
 }
 
 function Deconnection(){
+  document.getElementById("Pseudo").value = "";
   document.getElementById("login").innerHTML = "Mon Compte";
+
+  var a = document.getElementById("index");
+  var href = 'index.html';
+  a.setAttribute('href', href)
+  a.innerHTML = "Page Principale";
+
+  let b = document.getElementById("doc");
+  var href2 = 'documentation.html';
+  b.setAttribute('href', href2);
+  b.innerHTML = "Documentation";
+
   document.getElementById("Connection").style.display = "block";
   document.getElementById("Deconnection").style.display = "none";
+
 }
 
 
 window.onload = function AffichageParDefaut(){
-
+  var pseudo = location.search.substring(1);
+  console.log(pseudo);
   if(document.URL.includes("index.html")){
-    var queryPseudo = location.search.substring(1);
-    var split = queryPseudo.split("|");
-    var value1 = split[0];
-    console.log(value1);
+    var pseudo = location.search.substring(1);
+    if(pseudo != ""){
+      console.log(pseudo);
+      var a = document.getElementById("login");
+      var href1 = 'login.html?' + pseudo;
+      a.setAttribute('href', href1);
+      a.innerHTML = pseudo;
+      var b = document.getElementById("doc");
+      var href2 = 'documentation.html?' + pseudo;
+      b.setAttribute('href', href2);
+      b.innerHTML = "Documentation";
+      var c = document.getElementById("self");
+      var href3 = 'index.html?' + pseudo;
+      c.setAttribute('href', href3);
+      c.innerHTML = "Page Principale";
+
+    }
+    else{
+      document.getElementById("login").innerHTML = "Mon Compte";
+    }
   }
   else if(document.URL.includes("login.html")){
-    document.getElementById("Connection").style.display = "block";
-    document.getElementById("Deconnection").style.display = "none";
+    if(pseudo != ""){
+      console.log("ouai sa rentre dans la boucle");
+
+      document.getElementById("Connection").style.display = "none";
+      document.getElementById("Deconnection").style.display = "block";
+
+      document.getElementById("login").innerHTML = pseudo;
+      let a = document.getElementById("index");
+      var href1 = 'index.html?' + pseudo;
+      a.setAttribute('href', href1);
+      a.innerHTML = "Page Principale";
+      let b = document.getElementById("doc");
+      var href2 = 'documentation.html?' + pseudo;
+      b.setAttribute('href', href2);
+      b.innerHTML = "Documentation";
+      var c = document.getElementById("login");
+      var href3 = 'login.html?' + pseudo;
+      c.setAttribute('href', href3);
+      c.innerHTML = pseudo;
+    }
+    else{
+      document.getElementById("login").innerHTML = "Mon Compte";
+      document.getElementById("Connection").style.display = "block";
+      document.getElementById("Deconnection").style.display = "none";
+    }
+
+  }
+  else if(document.URL.includes("documentation.html")){
+    if(pseudo != ""){
+      let a = document.getElementById("index");
+      var href1 = 'index.html?' + pseudo;
+      a.setAttribute('href', href1);
+      a.innerHTML = "Page Principale";
+      let b = document.getElementById("login");
+      var href2 = 'login.html?' + pseudo;
+      b.setAttribute('href', href2);
+      b.innerHTML = pseudo;
+      var c = document.getElementById("self");
+      var href3 = 'documentation.html?' + pseudo;
+      c.setAttribute('href', href3);
+      c.innerHTML = "Documentation";
+    }
+    else{
+      document.getElementById("login").innerHTML = "Mon Compte";
+    }
   }
 }
 
