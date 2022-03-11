@@ -1,11 +1,11 @@
 function ActualliserPseudo(){
-  var pseudo = document.getElementById("Pseudo").value;
-  var bouton = document.getElementById("Connection");
+  var pseudo = document.querySelector("#Pseudo").value;
+  var bouton = document.querySelector("#Connection");
   console.log(pseudo + " boutton cliquer");
   if(pseudo != ""){
     if(bouton.style.display === "block"){
 
-      var a = document.getElementById("index");
+      var a = document.querySelector("#index");
       //var link = document.createTextNode("Page Principale");
       var href1 = 'index.html?'+ pseudo;
       a.setAttribute('href', href1);
@@ -22,10 +22,10 @@ function ActualliserPseudo(){
 
 
       console.log("debug");
-      document.getElementById("login").innerHTML = pseudo;
-      document.getElementById("Connection").style.display = "none";
-      document.getElementById("Deconnection").style.display = "block";
-      document.getElementById("login").value = "";
+      document.querySelector("#login").innerHTML = pseudo;
+      document.querySelector("#Connection").style.display = "none";
+      document.querySelector("#Deconnection").style.display = "block";
+      document.querySelector("#login").value = "";
     }
   }
   else{
@@ -34,21 +34,26 @@ function ActualliserPseudo(){
 }
 
 function Deconnection(){
-  document.getElementById("Pseudo").value = "";
-  document.getElementById("login").innerHTML = "Mon Compte";
+  document.querySelector("#Pseudo").value = "";
+  document.querySelector("#login").innerHTML = "Mon Compte";
 
-  var a = document.getElementById("index");
-  var href = 'index.html';
-  a.setAttribute('href', href)
+  var a = document.querySelector("#index");
+  var href1 = 'index.html';
+  a.setAttribute('href', href1)
   a.innerHTML = "Page Principale";
 
-  let b = document.getElementById("doc");
+  var b = document.querySelector("#doc");
   var href2 = 'documentation.html';
   b.setAttribute('href', href2);
   b.innerHTML = "Documentation";
 
-  document.getElementById("Connection").style.display = "block";
-  document.getElementById("Deconnection").style.display = "none";
+  var c = document.querySelector("#login");
+  var href3 = 'login.html';
+  c.setAttribute('href', href3);
+  c.innerHTML = "Mon Compte";
+  
+  document.querySelector("#Connection").style.display = "block";
+  document.querySelector("#Deconnection").style.display = "none";
 
 }
 
@@ -60,69 +65,69 @@ window.onload = function AffichageParDefaut(){
     var pseudo = location.search.substring(1);
     if(pseudo != ""){
       console.log(pseudo);
-      var a = document.getElementById("login");
+      var a = document.querySelector("#login");
       var href1 = 'login.html?' + pseudo;
       a.setAttribute('href', href1);
       a.innerHTML = pseudo;
-      var b = document.getElementById("doc");
+      var b = document.querySelector("#doc");
       var href2 = 'documentation.html?' + pseudo;
       b.setAttribute('href', href2);
       b.innerHTML = "Documentation";
-      var c = document.getElementById("self");
+      var c = document.querySelector("#self");
       var href3 = 'index.html?' + pseudo;
       c.setAttribute('href', href3);
       c.innerHTML = "Page Principale";
 
     }
     else{
-      document.getElementById("login").innerHTML = "Mon Compte";
+      document.querySelector("#login").innerHTML = "Mon Compte";
     }
   }
   else if(document.URL.includes("login.html")){
     if(pseudo != ""){
       console.log("ouai sa rentre dans la boucle");
 
-      document.getElementById("Connection").style.display = "none";
-      document.getElementById("Deconnection").style.display = "block";
+      document.querySelector("#Connection").style.display = "none";
+      document.querySelector("#Deconnection").style.display = "block";
 
-      document.getElementById("login").innerHTML = pseudo;
-      let a = document.getElementById("index");
+      document.querySelector("#login").innerHTML = pseudo;
+      let a = document.querySelector("#index");
       var href1 = 'index.html?' + pseudo;
       a.setAttribute('href', href1);
       a.innerHTML = "Page Principale";
-      let b = document.getElementById("doc");
+      let b = document.querySelector("#doc");
       var href2 = 'documentation.html?' + pseudo;
       b.setAttribute('href', href2);
       b.innerHTML = "Documentation";
-      var c = document.getElementById("login");
+      var c = document.querySelector("#login");
       var href3 = 'login.html?' + pseudo;
       c.setAttribute('href', href3);
       c.innerHTML = pseudo;
     }
     else{
-      document.getElementById("login").innerHTML = "Mon Compte";
-      document.getElementById("Connection").style.display = "block";
-      document.getElementById("Deconnection").style.display = "none";
+      document.querySelector("#login").innerHTML = "Mon Compte";
+      document.querySelector("#Connection").style.display = "block";
+      document.querySelector("#Deconnection").style.display = "none";
     }
 
   }
   else if(document.URL.includes("documentation.html")){
     if(pseudo != ""){
-      let a = document.getElementById("index");
+      let a = document.querySelector("#index");
       var href1 = 'index.html?' + pseudo;
       a.setAttribute('href', href1);
       a.innerHTML = "Page Principale";
-      let b = document.getElementById("login");
+      let b = document.querySelector("#login");
       var href2 = 'login.html?' + pseudo;
       b.setAttribute('href', href2);
       b.innerHTML = pseudo;
-      var c = document.getElementById("self");
+      var c = document.querySelector("#self");
       var href3 = 'documentation.html?' + pseudo;
       c.setAttribute('href', href3);
       c.innerHTML = "Documentation";
     }
     else{
-      document.getElementById("login").innerHTML = "Mon Compte";
+      document.querySelector("#login").innerHTML = "Mon Compte";
     }
   }
 }
