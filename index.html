@@ -3,7 +3,8 @@
   <head>
     <title>HotHotHot</title>
     <script src="JS/script.js"></script>
-    <link rel="stylesheet" href="CSS/stylesheet.css">
+    <link rel="stylesheet" href="CSS/stylesheet.css"></link>
+    <meta charset="utf-8"/>
     <link rel="apple-touch-icon" sizes="180x180" href="./image/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./image/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./image/favicon-16x16.png">
@@ -11,7 +12,7 @@
     <link rel="mask-icon" href="./image/safari-pinned-tab.svg" color="#ff7ce3">
     <meta name="msapplication-TileColor" content="#ffc3f2">
     <meta name="theme-color" content="#ffffff">
-    <link rel= "manifest" href= "./manifest.webmanifest">
+    <link rel="manifest" href="./manifest.webmanifest">
   </head>
 
   <body>
@@ -20,13 +21,44 @@
       <a href="documentation.html" id="doc">Documentation</a>
       <a href="login.html" id="login">Mon Compte</a>
     </div>
+    </br>
+    <div id="onglet">
+      <a href="#" data="0" id="temp">Température actuelle</a>
+      <a href="#" data="1" id="histo">Historique</a>
 
-      <!-- <button onclick="DisplayDiv()">Appuie sur moi UwU</button> -->
-    <div>
-      <p>ICI LA PAGE PRINCIPALE</p>
+    </div>
+    </br>
+    <div id="température">
+      <div id="statut"></div>
+      <div id="datas"></div>
     </div>
 
-
+    <div id="Historique">
+      <div id=inte>
+        <p> </p>
+      </div>
+      <table id="minmax">
+        <tr><td rowspan="2">Interieur</td><td>Min</td><td>???1 °C</td></tr>
+        <tr><td>Max</td><td>???2 °C</td></tr>
+        <tr><td rowspan="2">Exterieur</td><td>Min</td><td>???3 °C</td></tr>
+        <tr><td>Max</td><td>???4 °C</td></tr>
+      </table>
+      <div id="exte">
+        <canvas>
+          <p>salut</p>
+        </canvas>
+      </div>
+      <table id="int">
+        <tr><th colspan="3">Interieur</td></tr>
+        <tr><td>Type</td><td>Valeur</td><td>Timestamp</td></tr>
+      </table>
+      <table id="ext">
+        <tr><th colspan="3">Exterieur</td></tr>
+        <tr><td>Type</td><td>Valeur</td><td>Timestamp</td></tr>
+      </table>
+    </div>
   </body>
-
 </html>
+<style>
+
+</style>
