@@ -1,3 +1,4 @@
+/* jshint esversion : 6 */
 function ActualliserPseudo(){
   var pseudo = document.querySelector("#Pseudo").value;
   var bouton = document.querySelector("#Connection");
@@ -489,4 +490,13 @@ class C_Onglet{
             document.getElementById("Historique").style.display = "";
         }
     }
+}
+
+if('serviceWorker'in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker
+      .register('../sw.js')
+      .then(reg => console.log('Service Worker: Registered'))
+      .catch(err => console.log(`Service Worker: Error: ${err}`));
+  });
 }
