@@ -91,41 +91,17 @@ window.onload = function AffichageParDefaut(){
     statut.appendChild(p);
 
     var datas = document.getElementById("datas");
-        let div1 = document.createElement('div');
-        div1.setAttribute("id","interieur");
-        div1.style.float = 'left';
-        div1.style.width = '50%';
-        div1.style.minHeight = '632px';
-        div1.style.backgroundImage = 'url(https://www.domo-blog.fr/wp-content/uploads/2017/04/domotique-jardin-exterieur-990x521.jpg)';
-        div1.style.backgroundSize = 'cover';
-            let pint = document.createElement('p')
-            pint.setAttribute('id','pinterieur');
-            pint.innerText = "Valeur : ??? °C"
-            pint.style.fontSize = '70px';
-            pint.style.color = 'White';
-            pint.style.textShadow = "black 0.1em 0.1em 0.2em";
+        let div1 = document.getElementById("interieur");
+            let pint = document.getElementById("pinterieur");
+            pint.innerText = "Valeur : ??? °C";
         div1.appendChild(pint);
     datas.appendChild(div1);
 
-        let div2 = document.createElement('div');
-        div2.setAttribute("id","exterieur");
-        div2.style.float = 'left';
-        div2.style.width = '50%';
-        div2.style.minHeight = '632px';
-        div2.style.backgroundImage = 'url(https://3dms.fr/wp-content/uploads/2016/04/perspective-interieure-sobre-et-lumineuse.jpg)';
-        div2.style.backgroundSize = 'cover';
-            let pext = document.createElement('p')
-            pext.setAttribute('id','pexterieur');
-            pext.style.fontSize = '70px';
-            pext.style.color = 'White';
-            pext.style.textShadow = "black 0.1em 0.1em 0.2em";
+        let div2 = document.getElementById("exterieur");
+            let pext = document.getElementById("pexterieur");
             pext.innerText = "Valeur : ??? °C"
         div2.appendChild(pext);
     datas.appendChild(div2);
-
-    var puseless = document.createElement('p');
-    puseless.setAttribute("id","useless");
-    datas.appendChild(puseless);
 
     C_Onglet = new C_Onglet;
     C_Onglet.temp.onclick = function() {C_Onglet.ongletChange(0)};
@@ -135,6 +111,62 @@ window.onload = function AffichageParDefaut(){
     };
     C_Onglet.ongletChange(0)
 
+    
+    if (localStorage.getItem("dataInt") != null){
+      var tableint = document.getElementById("int");
+      var dataInt = JSON.parse(localStorage.getItem("dataInt"));
+      console.log(dataInt);
+      console.log(dataInt.length);
+      for(let i = 0; i < dataInt.length; i++ ){
+        let trInt = document.createElement('tr');
+        let tdTypeInt = document.createElement('td');
+        let tdValeurInt = document.createElement('td');
+        let tdTimestampInt = document.createElement('td');
+        tdTypeInt.innerHTML = dataInt[i].type;
+        tdValeurInt.innerHTML = dataInt[i].Valeur + " °C";
+        var dateInt = new Date(dataInt[i].Timestamp * 1000);
+        tdTimestampInt.innerHTML = dateInt;
+        trInt.appendChild(tdTypeInt);
+        trInt.appendChild(tdValeurInt);
+        trInt.appendChild(tdTimestampInt);
+        tableint.appendChild(trInt);
+
+        var a = "Valeur : " + dataInt[i].Valeur + "°C";
+        pext.innerText = a;
+      }
+    }
+
+    if (localStorage.getItem("dataExt") != null){
+      var tableext = document.getElementById("ext");
+      var dataExt = JSON.parse(localStorage.getItem("dataExt"));
+      console.log(dataExt);
+      console.log(dataExt.length);
+      for(let i = 0; i < dataExt.length; i++ ){
+        let trExt = document.createElement('tr');
+        let tdTypeExt = document.createElement('td');
+        let tdValeurExt = document.createElement('td');
+        let tdTimestampExt = document.createElement('td');
+        tdTypeExt.innerHTML = dataExt[i].type;
+        tdValeurExt.innerHTML = dataExt[i].Valeur + " °C";
+        var dateExt = new Date(dataExt[i].Timestamp * 1000);
+        tdTimestampExt.innerHTML = dateExt;
+        trExt.appendChild(tdTypeExt);
+        trExt.appendChild(tdValeurExt);
+        trExt.appendChild(tdTimestampExt);
+        tableext.appendChild(trExt);
+        
+        var a = "Valeur : " + dataExt[i].Valeur + "°C";
+        pint.innerHTML = a;
+      }
+    }
+
+    if (localStorage.getItem("minInt") != 0 || localStorage.getItem("minExt") != 0 || localStorage.getItem("maxExt") != 0 || localStorage.getItem("maxInt") != 0){
+      var tabMinMax = document.getElementById("minmax").getElementsByTagName("td");
+      tabMinMax[4].innerHTML = localStorage.getItem("maxInt") + " °C";
+      tabMinMax[2].innerHTML = localStorage.getItem("minInt") + " °C";
+      tabMinMax[9].innerHTML = localStorage.getItem("maxExt") + " °C";
+      tabMinMax[7].innerHTML = localStorage.getItem("minExt") + " °C";
+    }
 
   }
   else if(document.URL.includes("login.html")){
@@ -353,19 +385,23 @@ var socket = new WebSocket("wss://ws.hothothot.dog:9502");
 
 socket.onerror = function() {
     let p = document.getElementById('pstatut');
-    p.innerText = "Statut : Il y a un problème !";
+    p.innerText = "Statut : Connexion au serveur échoué !";
     let pint = document.getElementById('pinterieur');
     pint.innerText = "Valeur : ??? °C"
     let pext = document.getElementById('pexterieur');
     pext.innerText = "Valeur : ??? °C"
 
 }
-
-localStorage.setItem("minInt",0);
-localStorage.setItem("minExt",0);
-localStorage.setItem("maxInt",0);
-localStorage.setItem("maxExt",0);
-
+if (localStorage.getItem("local") != 10){
+  localStorage.setItem("minInt",0);
+  localStorage.setItem("minExt",0);
+  localStorage.setItem("maxInt",0);
+  localStorage.setItem("maxExt",0);
+  var initial = [];
+  localStorage.setItem("dataInt",JSON.stringify(initial));
+  localStorage.setItem("dataExt",JSON.stringify(initial));
+  localStorage.setItem("local",10);
+}
 socket.onopen = function(event) {
 
     console.log("Connexion établie");
@@ -400,7 +436,6 @@ socket.onopen = function(event) {
             var data = JSON.parse(event.data);
             console.log(data.capteurs['0'].Valeur);
             var a = "Valeur : " + data.capteurs['0'].Valeur + "°C";
-            console.log(a);
             var b = "Valeur : " + data.capteurs['1'].Valeur + "°C";
             pint.innerHTML = a;
             pext.innerText = b;
@@ -411,62 +446,71 @@ socket.onopen = function(event) {
             let tdValeurInt = document.createElement('td');
             let tdTimestampInt = document.createElement('td');
 
-            tdTypeInt.innerHTML = data.capteurs['0'].type;
-            tdValeurInt.innerHTML = data.capteurs['0'].Valeur + " °C";
-            var dateInt = new Date(data.capteurs['0'].Timestamp * 1000)
+            tdTypeInt.innerHTML = data.capteurs['1'].type;
+            tdValeurInt.innerHTML = data.capteurs['1'].Valeur + " °C";
+            var dateInt = new Date(data.capteurs['1'].Timestamp * 1000);
+            var dataInt = JSON.parse(localStorage.getItem("dataInt"));
+            var i = dataInt.length;
+            dataInt[i] = data.capteurs[1];
             tdTimestampInt.innerHTML = dateInt;
             trInt.appendChild(tdTypeInt);
             trInt.appendChild(tdValeurInt);
             trInt.appendChild(tdTimestampInt);
             tableint.appendChild(trInt);
+            localStorage.setItem("dataInt",JSON.stringify(dataInt));
 
             let trExt = document.createElement('tr');
             let tdTypeExt = document.createElement('td');
             let tdValeurExt = document.createElement('td');
             let tdTimestampExt = document.createElement('td');
 
-            tdTypeExt.innerHTML = data.capteurs['1'].type;
-            tdValeurExt.innerHTML = data.capteurs['1'].Valeur + " °C";
-            var dateExt = new Date(data.capteurs['1'].Timestamp * 1000)
+            tdTypeExt.innerHTML = data.capteurs['0'].type;
+            tdValeurExt.innerHTML = data.capteurs['0'].Valeur + " °C";
+            var dateExt = new Date(data.capteurs['0'].Timestamp * 1000);
+            var dataExt = JSON.parse(localStorage.getItem("dataExt"));
+            var j = dataExt.length;
+            dataExt[j] = data.capteurs[0];
             tdTimestampExt.innerHTML = dateExt;
             trExt.appendChild(tdTypeExt);
             trExt.appendChild(tdValeurExt);
             trExt.appendChild(tdTimestampExt);
             tableext.appendChild(trExt);
+            localStorage.setItem("dataExt",JSON.stringify(dataExt));
+
             console.log(localStorage.getItem("minInt"));
             console.log(localStorage.getItem("maxInt"));
             console.log(localStorage.getItem("minExt"));
             console.log(localStorage.getItem("maxExt"));
             
             if (localStorage.getItem("minInt") == 0 || localStorage.getItem("minExt") == 0 || localStorage.getItem("maxExt") == 0 || localStorage.getItem("maxInt") == 0){
-                tabMinMax[4].innerHTML = data.capteurs['0'].Valeur + " °C";
-                localStorage.setItem("maxInt",data.capteurs['0'].Valeur);
-                tabMinMax[2].innerHTML = data.capteurs['0'].Valeur + " °C";
-                localStorage.setItem("minInt",data.capteurs['0'].Valeur);
-                tabMinMax[9].innerHTML = data.capteurs['1'].Valeur + " °C";
-                localStorage.setItem("maxExt",data.capteurs['1'].Valeur);
-                tabMinMax[7].innerHTML = data.capteurs['1'].Valeur + " °C";
-                localStorage.setItem("minExt",data.capteurs['1'].Valeur);
+                tabMinMax[4].innerHTML = data.capteurs['1'].Valeur + " °C";
+                localStorage.setItem("maxInt",data.capteurs['1'].Valeur);
+                tabMinMax[2].innerHTML = data.capteurs['1'].Valeur + " °C";
+                localStorage.setItem("minInt",data.capteurs['1'].Valeur);
+                tabMinMax[9].innerHTML = data.capteurs['0'].Valeur + " °C";
+                localStorage.setItem("maxExt",data.capteurs['0'].Valeur);
+                tabMinMax[7].innerHTML = data.capteurs['0'].Valeur + " °C";
+                localStorage.setItem("minExt",data.capteurs['0'].Valeur);
                 console.log(1)
             }
-            if(data.capteurs['0'].Valeur > localStorage.getItem("maxInt")){
-                tabMinMax[4].innerHTML = data.capteurs['0'].Valeur + " °C";
-                localStorage.setItem("maxInt",data.capteurs['0'].Valeur);
+            if(data.capteurs['1'].Valeur > localStorage.getItem("maxInt")){
+                tabMinMax[4].innerHTML = data.capteurs['1'].Valeur + " °C";
+                localStorage.setItem("maxInt",data.capteurs['1'].Valeur);
                 console.log(2)
             }
-            else if(data.capteurs['0'].Valeur < localStorage.getItem("minInt")){
-                tabMinMax[2].innerHTML = data.capteurs['0'].Valeur + " °C";
-                localStorage.setItem("minInt",data.capteurs['0'].Valeur);
+            else if(data.capteurs['1'].Valeur < localStorage.getItem("minInt")){
+                tabMinMax[2].innerHTML = data.capteurs['1'].Valeur + " °C";
+                localStorage.setItem("minInt",data.capteurs['1'].Valeur);
                 console.log(3)
             }           
-            if(data.capteurs['1'].Valeur > localStorage.getItem("maxExt")){
-                tabMinMax[9].innerHTML = data.capteurs['1'].Valeur + " °C";
-                localStorage.setItem("maxExt",data.capteurs['1'].Valeur);
+            if(data.capteurs['0'].Valeur > localStorage.getItem("maxExt")){
+                tabMinMax[9].innerHTML = data.capteurs['0'].Valeur + " °C";
+                localStorage.setItem("maxExt",data.capteurs['0'].Valeur);
                 console.log(4)
             }
-            else if(data.capteurs['1'].Valeur < localStorage.getItem("minExt")){
-                tabMinMax[7].innerHTML = data.capteurs['1'].Valeur + " °C";
-                localStorage.setItem("minExt",data.capteurs['1'].Valeur);
+            else if(data.capteurs['0'].Valeur < localStorage.getItem("minExt")){
+                tabMinMax[7].innerHTML = data.capteurs['0'].Valeur + " °C";
+                localStorage.setItem("minExt",data.capteurs['0'].Valeur);
                 console.log(5)
             }       
         }
@@ -499,4 +543,4 @@ if('serviceWorker'in navigator) {
       .then(reg => console.log('Service Worker: Registered'))
       .catch(err => console.log(`Service Worker: Error: ${err}`));
   });
-}
+} 
