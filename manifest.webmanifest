@@ -2,9 +2,9 @@
     "name" : "HotHotHot",
     "short_name" : "HT3",
     "display" : "standalone",
-    "start_url" : "https://hothothotjssisi.alwaysdata.net/index.html",
+    "start_url" : "mettre_lien_site/index.html",
     "id" : "/index.html",
-    "scope" : "https://hothothotjssisi.alwaysdata.net",
+    "scope" : "mettre_lien_site",
     "icons" : [
     {
         "src" : "image/android-chrome-192x192.png",
