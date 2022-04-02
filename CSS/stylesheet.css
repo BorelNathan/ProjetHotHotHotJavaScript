@@ -31,6 +31,26 @@ color: white;
 border: solid black;
 }
 
+#onglet{
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+  padding: 20px;
+  background-color: grey;
+  flex-wrap: wrap;
+}
+
+#onglet a{
+  text-decoration: none;
+  color: black;
+  margin-left: 50px;
+  transition-duration: 0.3s;
+}
+
+#onglet a:hover{
+  color: white;
+}
+
 .Connection {
 text-align: center;
 float: left;
