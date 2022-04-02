@@ -62,7 +62,7 @@ function Deconnection(){
 window.onload = function AffichageParDefaut(){
   var pseudo = location.search.substring(1);
   console.log(pseudo);
-  if(document.URL.includes("index.html") || document.URL.includes("")){
+  if(document.URL.includes("index.html")){
     var pseudo = location.search.substring(1);
     if(pseudo != ""){
       console.log(pseudo);
@@ -90,13 +90,18 @@ window.onload = function AffichageParDefaut(){
     p.innerText = "Statut : En attente !";
     statut.appendChild(p);
 
+    var datas = document.getElementById("datas");
+        let div1 = document.getElementById("interieur");
             let pint = document.getElementById("pinterieur");
             pint.innerText = "Valeur : ??? °C";
+        div1.appendChild(pint);
+    datas.appendChild(div1);
 
-
+        let div2 = document.getElementById("exterieur");
             let pext = document.getElementById("pexterieur");
             pext.innerText = "Valeur : ??? °C"
-
+        div2.appendChild(pext);
+    datas.appendChild(div2);
 
     C_Onglet = new C_Onglet;
     C_Onglet.temp.onclick = function() {C_Onglet.ongletChange(0)};
@@ -430,34 +435,6 @@ socket.onopen = function(event) {
             document.getElementById("statut").innerHTML = "Statut : Donnée transmise !";
             var data = JSON.parse(event.data);
             console.log(data.capteurs['0'].Valeur);
-
-            var pstatutext = document.getElementById("alertext");
-            var pstatutint = document.getElementById("alertint");
-            if (data.capteurs['0'].Valeur > 35){
-              pstatutext.innerHTML = "Hot Hot Hot !";
-            }
-            else if (data.capteurs['0'].Valeur < 0){
-              pstatutext.innerHTML = "Banquise en vue !";
-            }
-            else {
-              pstatutext.innerHTML = "";
-            }
-            if (data.capteurs['1'].Valeur > 50){
-              pstatutint.innerHTML = "Appelez les pompiers ou arrêtez votre barbecue !";
-            }
-            else if (data.capteurs['1'].Valeur > 22){
-              pstatutint.innerHTML = "Baissez le chauffage !";
-            }
-            else if (data.capteurs['1'].Valeur < 0){
-              pstatutint.innerHTML = "canalisation gelées, appelez SOS pomblier et mettez un bonnet !";
-            }
-            else if (data.capteurs['1'].Valeur < 12){
-              pstatutint.innerHTML = "montez le chauffage ou mettez un gros pull !";
-            }
-            else{
-              pstatutint.innerHTML = "";
-            }
-
             var a = "Valeur : " + data.capteurs['0'].Valeur + "°C";
             var b = "Valeur : " + data.capteurs['1'].Valeur + "°C";
             pint.innerHTML = a;
@@ -535,11 +512,7 @@ socket.onopen = function(event) {
                 tabMinMax[7].innerHTML = data.capteurs['0'].Valeur + " °C";
                 localStorage.setItem("minExt",data.capteurs['0'].Valeur);
                 console.log(5)
-            }
-
-            
-
-
+            }       
         }
     }
 
@@ -571,3 +544,43 @@ if('serviceWorker'in navigator) {
       .catch(err => console.log(`Service Worker: Error: ${err}`));
   });
 } 
+
+
+
+
+function isPushNotificationSupported() {
+  return "serviceWorker" in navigator && "PushManager" in window;
+}
+
+function initializePushNotifications() {
+  return Notification.requestPermission(function(result) {
+      return result;
+  });
+}
+
+
+function sendNotification() {
+  const img = "/images/app_icon192x192.png";
+  const text = "Notification !";
+  const title = "Titre";
+  const options = {
+      body: text,
+      vibrate: [200, 100, 200],
+      tag: "notification",
+  };
+  navigator.serviceWorker.ready.then(function(serviceWorker) {
+      serviceWorker.showNotification(title, options);
+  });
+}
+
+function checkAndSendNotification(){
+  if(isPushNotificationSupported()){
+      initializePushNotifications().then(function (consent){
+          if(consent === 'granted'){
+              sendNotification();
+          }
+      })
+  }
+}
+
+checkAndSendNotification();
