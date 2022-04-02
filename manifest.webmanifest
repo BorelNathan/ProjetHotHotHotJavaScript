@@ -2,49 +2,49 @@
     "name" : "HotHotHot",
     "short_name" : "HT3",
     "display" : "standalone",
-    "start_url" : "mettre_lien_site/index.html",
+    "start_url" : "https://hothothotjssisi.alwaysdata.net/index.html",
     "id" : "/index.html",
-    "scope" : "mettre_lien_site",
+    "scope" : "https://hothothotjssisi.alwaysdata.net",
     "icons" : [
     {
-        "src" : "image/android-chrome-192x192.png",
+        "src" : "./image/android-chrome-192x192.png",
         "size" : "192x192",
         "type" : "image/png"
     },
     {
-        "src" : "image/android-chrome-384x384.png",
+        "src" : "./image/android-chrome-384x384.png",
         "size" : "384x384",
         "type" : "image/png"
     },
     {
-        "src" : "image/apple-touch-icon.png",
+        "src" : "./image/apple-touch-icon.png",
         "type" : "image/png"
     },
     {
-        "src" : "image/browserconfig.xml",
+        "src" : "./image/browserconfig.xml",
         "type" : "image/xml"
     },
     {
-        "src" : "image/favicon-16x16.png",
+        "src" : "./image/favicon-16x16.png",
         "size" : "16x16",
         "type" : "image/png"
     },
     {
-        "src" : "image/favicon-32x32.png",
+        "src" : "./image/favicon-32x32.png",
         "size" : "32x32",
         "type" : "image/png"
     },
     {
-        "src" : "image/favicon.ico",
+        "src" : "./image/favicon.ico",
         "type" : "image/ico"
     },
     {
-        "src" : "image/mstile-150x150.png",
+        "src" : "./image/mstile-150x150.png",
         "size" : "150x150",
         "type" : "image/png"
     },
     {
-        "src" : "image/safari-pinned-tab.svg",
+        "src" : "./image/safari-pinned-tab.svg",
         "type" : "image/svg"
     }
 ],
