@@ -431,28 +431,34 @@ socket.onopen = function(event) {
             var data = JSON.parse(event.data);
             console.log(data.capteurs['0'].Valeur);
 
-            var pstatutext = document.getElementById("alertext");
-            var pstatutint = document.getElementById("alertint");
+            var pstatutext = document.getElementById("alertint");
+            var pstatutint = document.getElementById("alertext");
             if (data.capteurs['0'].Valeur > 35){
               pstatutext.innerHTML = "Hot Hot Hot !";
+              sendNotification(pstatutext.innerHTML);
             }
             else if (data.capteurs['0'].Valeur < 0){
               pstatutext.innerHTML = "Banquise en vue !";
+              sendNotification(pstatutext.innerHTML);
             }
             else {
               pstatutext.innerHTML = "";
             }
             if (data.capteurs['1'].Valeur > 50){
               pstatutint.innerHTML = "Appelez les pompiers ou arrêtez votre barbecue !";
+              sendNotification(pstatutint.innerHTML);
             }
             else if (data.capteurs['1'].Valeur > 22){
               pstatutint.innerHTML = "Baissez le chauffage !";
+              sendNotification(pstatutint.innerHTML);
             }
             else if (data.capteurs['1'].Valeur < 0){
               pstatutint.innerHTML = "canalisation gelées, appelez SOS pomblier et mettez un bonnet !";
+              sendNotification(pstatutint.innerHTML);
             }
             else if (data.capteurs['1'].Valeur < 12){
               pstatutint.innerHTML = "montez le chauffage ou mettez un gros pull !";
+              sendNotification(pstatutint.innerHTML);
             }
             else{
               pstatutint.innerHTML = "";
@@ -587,15 +593,15 @@ function initializePushNotifications() {
 }
 
 
-function sendNotification() {
-  const img = "/images/app_icon192x192.png";
-  const text = "Notification !";
-  const title = "Titre";
+function sendNotification(notifAlert = "Notifications activées") {
+  const text = "";
+  const title = notifAlert;
   const options = {
       body: text,
       vibrate: [200, 100, 200],
       tag: "notification",
   };
+  
   navigator.serviceWorker.ready.then(function(serviceWorker) {
       serviceWorker.showNotification(title, options);
   });
@@ -607,7 +613,7 @@ function checkAndSendNotification(){
           if(consent === 'granted'){
               sendNotification();
           }
-      })
+      });
   }
 }
 
