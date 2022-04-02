@@ -62,7 +62,7 @@ function Deconnection(){
 window.onload = function AffichageParDefaut(){
   var pseudo = location.search.substring(1);
   console.log(pseudo);
-  if(document.URL.includes("index.html")){
+  if(document.URL.includes("index.html") || document.URL.includes("")){
     var pseudo = location.search.substring(1);
     if(pseudo != ""){
       console.log(pseudo);
