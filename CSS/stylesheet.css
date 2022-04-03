@@ -2,6 +2,7 @@ body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
 .navbarre{
@@ -50,6 +51,7 @@ border: solid black;
 #onglet a:hover{
   color: white;
 }
+
 
 .Connection {
 text-align: center;
@@ -150,7 +152,14 @@ margin-bottom: 25px;
 }
 
 .photo{
-  border-radius: 50%;
+  width: 50%;
+  text-align: center;
+}
+
+#photo_2{
+  width: 50%;
+  height: 50%;
+
 }
 
 .box-org ul{
@@ -192,6 +201,7 @@ table, td {
   min-height: 632px;
   background-size: cover;
 }
+
 
 #interieur {
   background-image: url(https://www.domo-blog.fr/wp-content/uploads/2017/04/domotique-jardin-exterieur-990x521.jpg);
